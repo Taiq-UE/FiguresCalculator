@@ -50,7 +50,7 @@ class Kwadrat extends Figura
 
 class Prostokat extends Kwadrat
 {
-	double dB;
+	private double dB;
 	
 	Prostokat(double dA, double b)
 	{
@@ -109,7 +109,7 @@ class Kolo extends Figura
 
 class Trojkat extends Figura
 {
-	double dB, dC;
+	private double dB, dC;
 	
 	Trojkat(double dA)
 	{
