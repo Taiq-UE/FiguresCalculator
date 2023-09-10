@@ -1,4 +1,6 @@
 
-public class Figura {
-
+public class Figura 
+{
+	
+	
 }
