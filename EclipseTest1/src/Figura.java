@@ -106,3 +106,52 @@ class Kolo extends Figura
 				"\nPrzekatna: " + Przekatna();
 	}
 }
+
+class Trojkat extends Figura
+{
+	double dB, dC;
+	
+	Trojkat(double dA)
+	{
+		super(dA);
+		dB = dC = dA;
+	}
+	Trojkat(double dA, double b, double c)
+	{
+		super(dA);
+		dB = b;
+		dC = c;
+	}
+	
+	double Pole()
+	{
+		double p = (dA + dB + dC)/2;
+		
+		double wynik = p*(p-dA)*(p-dB)*(p-dC);
+		
+		return Math.sqrt(wynik);
+	}
+	
+	double Obwod()
+	{
+		return dA + dB + dC;
+	}
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
