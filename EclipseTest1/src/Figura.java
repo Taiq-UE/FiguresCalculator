@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Figura 
 {
 	protected double dA;
@@ -156,7 +158,7 @@ class Kolo extends Figura
 		return 2*dA;
 	}
 	
-	void Rysuj()
+	void RysujFull()
 	{
 		for (int i = (int) -dA; i <= dA; i++) 
 		{
@@ -164,9 +166,32 @@ class Kolo extends Figura
 	        {
 	            double odlegloscOdSrodka = Math.sqrt(i * i + j * j);
 	            
-	            if (odlegloscOdSrodka <= dA) {
+	            if (odlegloscOdSrodka <= dA) 
+	            {
 	                System.out.print("* ");
-	            } else {
+	            } 
+	            else 
+	            {
+	                System.out.print("  ");
+	            }
+	        }
+	        System.out.println();
+	    }
+	}
+	void Rysuj()
+	{
+		for (int i = (int) -dA; i <= dA; i++) 
+		{
+	        for (int j = (int) -dA; j <= dA; j++) 
+	        {
+	            double odlegloscOdSrodka = Math.sqrt(i * i + j * j);
+	           
+	            if (Math.abs(odlegloscOdSrodka - dA) < 0.5) 
+	            {
+	                System.out.print("* ");
+	            } 
+	            else 
+	            {
 	                System.out.print("  ");
 	            }
 	        }
@@ -211,6 +236,75 @@ class Trojkat extends Figura
 		return dA + dB + dC;
 	}
 	
+	boolean CzyTrojkat()
+	{
+		if(dA + dB < dC || dA + dC < dB || dB + dC < dA )
+			return false;
+		else
+			return true;
+	}
+	
+	public String toString()
+	{
+		if(CzyTrojkat())
+			return "Trojkat:\nBoki: "+ dA + ", " + dB + ", " + dC + "\n"  + super.toString();
+		else
+			return "Błąd. Z podanych boków nie może powstać trójkąt";
+	}
+	
+	public void RysujFull()
+	{
+		if(CzyTrojkat())
+		{
+			double arr[] = {dA, dB, dC};
+			Arrays.sort(arr);
+			
+			for (int i = 1; i <= arr[0]; i++) 
+			{
+	            for (int j = 1; j <= arr[1]; j++) 
+	            {
+	                if (j <= i) 
+	                {
+	                    System.out.print("* ");
+	                }
+	            }
+	            System.out.println();
+			}
+		}
+		else
+		{
+			System.out.println(toString());
+		}
+	}
+	
+	public void Rysuj()
+	{
+		if(CzyTrojkat())
+		{
+			double arr[] = {dA, dB, dC};
+			Arrays.sort(arr);
+			
+			for (int i = 0; i < arr[0]; i++) 
+			{
+			    for (int j = 0; j < arr[1]; j++) 
+			    {
+			        if (j == 0 || j == i || i == arr[0] - 1) 
+			        {
+			            System.out.print("* ");
+			        } 
+			        else 
+			        {
+			            System.out.print("  ");
+			        }
+			    }
+			    System.out.println();
+			}
+		}
+		else
+		{
+			System.out.println(toString());
+		}
+	}
 	
 }
 
