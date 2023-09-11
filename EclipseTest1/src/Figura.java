@@ -15,6 +15,7 @@ public class Figura
 	double Obwod(){
 		return 0;
 	}
+	
 	public String toString()
 	{
 		return "Pole: " + Pole() + "\nObwod: " + Obwod();
@@ -68,6 +69,7 @@ class Kwadrat extends Figura
 			System.out.println();
 		}
 	}
+	
 	public String toString()
 	{
 		return "Kwadrat\nDlugosc boku a: " + dA + "\n" + super.toString() +
@@ -130,6 +132,7 @@ class Prostokat extends Kwadrat
 			System.out.println();
 		}
 	}
+	
 	public String toString()
 	{
 		return "Prostokąt:\nDlugosc boku a: " + dA + "\nDlugosc boku b: " + dB + "\nPole: " + Pole() + "\nObwod: " + Obwod() +
@@ -230,12 +233,10 @@ class Trojkat extends Figura
 		
 		return Math.sqrt(wynik);
 	}
-	
 	double Obwod()
 	{
 		return dA + dB + dC;
 	}
-	
 	boolean CzyTrojkat()
 	{
 		if(dA + dB < dC || dA + dC < dB || dB + dC < dA )
@@ -276,7 +277,6 @@ class Trojkat extends Figura
 			System.out.println(toString());
 		}
 	}
-	
 	public void Rysuj()
 	{
 		if(CzyTrojkat())
@@ -286,7 +286,6 @@ class Trojkat extends Figura
 			
 			for (int i = 0; i < arr[0]; i++) 
 			{
-				
 			    for (int j = 0; j < arr[1]; j++) 
 			    {
 			        if (j == 0 || j == i || i == arr[0] - 1) 
@@ -306,6 +305,4 @@ class Trojkat extends Figura
 			System.out.println(toString());
 		}
 	}
-	
 }
-
