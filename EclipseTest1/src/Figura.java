@@ -7,7 +7,6 @@ public class Figura
 		dA = a;
 	}
 	
-	
 	double Pole(){
 		return 0;
 	}
@@ -41,11 +40,38 @@ class Kwadrat extends Figura
 		return (dA*Math.sqrt(2));
 	}
 	
+	public void RysujFull()
+	{
+		for(int i = 0; i < dA; i++)
+		{
+			for(int j = 0; j < dA; j++)
+			{
+				System.out.print("* ");
+			}
+			System.out.println();
+		}
+	}
+	public void Rysuj()
+	{
+		for(int i = 0; i < dA; i++)
+		{
+			for(int j = 0; j < dA; j++)
+			{
+				if(i == 0 | i == dA-1 | j == 0 | j == dA-1)
+					System.out.print("* ");
+				else
+					System.out.print("  ");
+				
+			}
+			System.out.println();
+		}
+	}
 	public String toString()
 	{
-		return super.toString() +
+		return "Kwadrat\nDlugosc boku a: " + dA + "\n" + super.toString() +
 				"\nPrzekatna: " + Przekatna();
 	}
+	
  }
 
 class Prostokat extends Kwadrat
@@ -77,8 +103,38 @@ class Prostokat extends Kwadrat
 		return wynik;
 	}
 	
+	public void RysujFull()
+	{
+		for(int i = 0; i < dA; i++)
+		{
+			for(int j = 0; j < dB; j++)
+			{
+				System.out.print("* ");
+			}
+			System.out.println();
+		}
+	}
+	public void Rysuj()
+	{
+		for(int i = 0; i < dA; i++)
+		{
+			for(int j = 0; j < dB; j++)
+			{
+				if(i == 0 | i == dA-1 | j == 0 | j == dB-1)
+					System.out.print("* ");
+				else
+					System.out.print("  ");
+			}
+			System.out.println();
+		}
+	}
+	public String toString()
+	{
+		return "Prostokąt:\nDlugosc boku a: " + dA + "\nDlugosc boku b: " + dB + "\nPole: " + Pole() + "\nObwod: " + Obwod() +
+				"\nPrzekatna: " + Przekatna();
+	}
+	
 }
-
 
 class Kolo extends Figura
 {
@@ -100,9 +156,27 @@ class Kolo extends Figura
 		return 2*dA;
 	}
 	
+	void Rysuj()
+	{
+		for (int i = (int) -dA; i <= dA; i++) 
+		{
+	        for (int j = (int) -dA; j <= dA; j++) 
+	        {
+	            double odlegloscOdSrodka = Math.sqrt(i * i + j * j);
+	            
+	            if (odlegloscOdSrodka <= dA) {
+	                System.out.print("* ");
+	            } else {
+	                System.out.print("  ");
+	            }
+	        }
+	        System.out.println();
+	    }
+	}
+	
 	public String toString()
 	{
-		return super.toString() +
+		return "Koło:\n" + super.toString() +
 				"\nPrzekatna: " + Przekatna();
 	}
 }
@@ -139,19 +213,4 @@ class Trojkat extends Figura
 	
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
